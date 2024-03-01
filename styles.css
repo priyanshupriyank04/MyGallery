@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wrapper{
+    height: 100vh;
+    overflow-x: hidden; /*to prevent horizontal scrolling*/
+    overflow-y: auto;
+}
+
+.container{
+    height: 100%;
+    max-width: 1200px;    
+    margin: 0 auto;  /*this type of margin is given when you want to give equal spacing from left and right */
+    padding: 20px; 
+}
+
+.container h1{
+    margin: 20px 0;   /*here 20px is top and  bottom margin while 0px is left and right margin  */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card{
+    width: 32%;
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden; /*given to ensure no image overflows out of its container */
+
+
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
+    filter: grayscale(100%);
+    box-shadow: 0 0 20px #333;
+    object-fit: cover;   /*to make the image cover the border box more properly */
+}
+
+.card:hover{
+    transform: scale(1.05); /*it is used to increase the size of the image when the cursor hovers over the image */
+    transition: 0.5s;  /*sets the time which will be required to complete the scaling transforming of the item */
+    filter: drop-shadow(0 0 10px #333); /*used to also give a mild shadow effect together with the scaling effect*/
+
+}
+
+.card:hover img{
+    filter: grayscale(0%);
+}
+
+.card figcaption{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    width: 100%;
+    height: 20%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    opacity: 0; /*opacity 0 means that there will be no transparency for the text amd 1 will be full transparency */
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(255, 255, 255, 0) 100%);
+    transition: 0.5s;
+
+}
+
+.card:hover figcaption{
+    opacity: 1;
+    transform: scale(1.05);
+}
